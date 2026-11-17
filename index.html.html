@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponto de Partida — Roupas Esportivas Acessíveis para Começar</title>
+  <meta name="description" content="Conforto, praticidade e preço acessível para quem está dando o primeiro passo na academia, corrida, lutas ou bike — sem gastar caro nem errar na escolha.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#0A0D12',
+              900: '#0F1E36',
+              800: '#162B4D',
+              700: '#1E3A6E',
+            },
+            ice: {
+              50: '#FFFFFF',
+              100: '#F4F7FA',
+              200: '#E6ECF2',
+            },
+            graphite: {
+              700: '#334155',
+              600: '#475569',
+              400: '#94A3B8',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+          borderRadius: {
+            'card': '14px',
+            'pill': '30px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Design System & Motion - Ponto de Partida (Paleta Estrita Clean) */
+    :root {
+      --navy-deep: #0F1E36;
+      --navy-mid: #162B4D;
+      --black-ink: #0A0D12;
+      --ice-bg: #F4F7FA;
+      --graphite-text: #334155;
+      --graphite-muted: #475569;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--ice-bg);
+      color: var(--graphite-text);
+      overflow-x: hidden;
+    }
+    /* Glassmorphism Clean Styles */
+    .glass-header {
+      height: 100px;
+      background: rgba(244, 247, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15, 30, 54, 0.08);
+      transition: transform 600ms ease-in-out, background-color 600ms ease-in-out;
+    }
+
+    .header-hidden {
+      transform: translateY(-100%);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(15, 30, 54, 0.08);
+      border-radius: 14px;
+      box-shadow: 0 10px 28px -8px rgba(10, 13, 18, 0.06);
+      transition: transform 400ms ease-in-out, box-shadow 400ms ease-in-out, border-color 400ms ease-in-out;
+    }
+
+    .card-interactive:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 36px -10px rgba(15, 30, 54, 0.14);
+      border-color: rgba(15, 30, 54, 0.22);
+    }
+
+    .glass-dark {
+      background: rgba(15, 30, 54, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      box-shadow: 0 20px 40px -12px rgba(10, 13, 18, 0.35);
+      transition: transform 400ms ease-in-out, box-shadow 400ms ease-in-out, border-color 400ms ease-in-out;
+    }
+
+    .glass-dark.card-interactive:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 44px -12px rgba(10, 13, 18, 0.48);
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .glass-overlay-badge {
+      background: rgba(244, 247, 250, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(15, 30, 54, 0.12);
+      border-radius: 12px;
+    }
+
+    /* Botões Pílula (30px) com Hover Lift (Scale 1.05 + Ease-in-out) */
+    .btn-pill {
+      border-radius: 30px;
+      transition: transform 400ms ease-in-out, background-color 400ms ease-in-out, box-shadow 400ms ease-in-out, border-color 400ms ease-in-out, color 400ms ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-pill:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-pill:active {
+      transform: scale(0.98);
+    }
+
+    /* Scroll Reveal (Fade-in + Slide-up, 600ms, ease-in-out, stagger 400ms) */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease-in-out, transform 600ms ease-in-out;
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0ms; }
+    .delay-2 { transition-delay: 400ms; }
+    .delay-3 { transition-delay: 800ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .btn-pill:hover,
+      .card-interactive:hover {
+        transform: none;
+      }
+    }
+
+    /* Acordeão Suave FAQ */
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 400ms ease-in-out;
+    }
+
+    .accordion-content.open {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-inner {
+      overflow: hidden;
+    }
+
+    .accordion-icon {
+      transition: transform 400ms ease-in-out;
+    }
+
+    .accordion-btn[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Fundo Clean com sutileza monocromática */
+    .bg-mesh-light {
+      background-image:
+        radial-gradient(at 15% 15%, rgba(15, 30, 54, 0.05) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(51, 65, 85, 0.05) 0px, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-mesh-light text-graphite-700 antialiased selection:bg-navy-900 selection:text-white">
+
+  <!-- HEADER STICKY INTELIGENTE (100px, Glassmorphism) -->
+  <header id="main-header" class="glass-header fixed top-0 left-0 right-0 z-50 flex items-center">
+    <div class="container-pp w-full flex items-center justify-between">
+      <!-- Marca -->
+      <a href="#topo" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-card bg-navy-900 text-white flex items-center justify-center font-bold text-lg tracking-tight shadow-sm group-hover:bg-navy-950 transition-colors">
+          PP
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-navy-950 text-lg leading-none tracking-tight">Ponto de Partida</span>
+          <span class="text-xs text-graphite-600 mt-1">Moda Esportiva 100% Online</span>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-graphite-700">
+        <a href="#beneficios" class="hover:text-navy-950 transition-colors">Diferenciais</a>
+        <a href="#guia-modalidade" class="hover:text-navy-950 transition-colors">Guia por Modalidade</a>
+        <a href="#prova-social" class="hover:text-navy-950 transition-colors">Aprovado pela Galera</a>
+        <a href="#kits-precos" class="hover:text-navy-950 transition-colors">Kits e Peças</a>
+        <a href="#faq" class="hover:text-navy-950 transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- CTA Header -->
+      <div class="flex items-center gap-3">
+        <a href="#reserva-kit" class="btn-pill bg-navy-900 hover:bg-navy-950 text-white text-sm px-5 py-3 shadow-md">
+          Escolha seu primeiro kit
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESPAÇADOR DO HEADER FIXO (100px) -->
+  <div id="topo" class="h-[100px]"></div>
+
+  <main>
+    <!-- HERO SECTION: TELA DIVIDIDA 50/50 VERTICAL NO DESKTOP -->
+    <section class="pt-8 pb-16 md:pt-14 md:pb-24">
+      <div class="container-pp">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Coluna Esquerda (50% -> 6 cols) -->
+          <div class="lg:col-span-6 space-y-6 reveal-item delay-1">
+            <!-- Badge de Prova Social Exato -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-pill glass-card text-xs sm:text-sm font-medium text-navy-900">
+              <span class="text-navy-950 font-bold" aria-label="5 estrelas">★★★★★</span>
+              <span>Se você também está no começo, vá de conforto aprovado pela galera</span>
+            </div>
+
+            <!-- Headline Principal (16-24px mobile -> 24-60px desktop) -->
+            <h1 class="text-3xl sm:text-4xl lg:text-[54px] font-extrabold text-navy-950 leading-[1.1] tracking-tight">
+              Ponto de Partida, Comece a treinar com conforto
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="text-lg sm:text-xl lg:text-2xl font-medium text-graphite-600 leading-relaxed max-w-xl">
+              Conforto, praticidade e preço acessível.
+            </p>
+            <p class="text-sm sm:text-base text-graphite-600 leading-relaxed max-w-xl">
+              Roupas esportivas pensadas para quem acabou de fazer a matrícula na academia, corrida, lutas ou bike e quer começar bem sem gastar caro nem errar na escolha.
+            </p>
+
+            <!-- Botões de Ação -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <a href="#kits-precos" class="btn-pill bg-navy-900 hover:bg-navy-950 text-white text-base px-8 py-4 shadow-lg text-center">
+                Escolha seu primeiro kit
+              </a>
+              <a href="#guia-modalidade" class="btn-pill glass-card hover:bg-white text-navy-900 text-base px-7 py-4 text-center">
+                Ver Guia por Modalidade
+              </a>
+            </div>
+
+            <!-- Micro-indicadores de Confiança -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-navy-900/10 text-xs sm:text-sm">
+              <div>
+                <p class="font-bold text-navy-950">Kits R$ 99,90</p>
+                <p class="text-graphite-600">Avulsas a partir R$ 49,90</p>
+              </div>
+              <div>
+                <p class="font-bold text-navy-950">Zero transparência</p>
+                <p class="text-graphite-600">Tecido respirável e flexível</p>
+              </div>
+              <div>
+                <p class="font-bold text-navy-950">100% Online</p>
+                <p class="text-graphite-600">1ª troca fácil garantida</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita (50% -> 6 cols): Imagem Hero Eager + fetchpriority="high" -->
+          <div class="lg:col-span-6 reveal-item delay-2">
+            <div class="glass-card p-4 sm:p-6 relative">
+              <div class="relative rounded-card overflow-hidden bg-ice-200 aspect-[4/3]">
+                <img
+                  src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=85"
+                  alt="Jovens adultos treinando com roupas esportivas leves e confortáveis da Ponto de Partida"
+                  loading="eager"
+                  fetchpriority="high"
+                  class="w-full h-full object-cover rounded-card"
+                  onerror="this.onerror=null;this.src='https://placehold.co/800x600/0F1E36/FFFFFF?text=Ponto+de+Partida+%E2%80%A2+Kits+de+Inicia%C3%A7%C3%A3o';"
+                >
+                <!-- Selo Glassmorphism Flutuante Superior -->
+                <div class="glass-overlay-badge absolute top-3 left-3 right-3 sm:right-auto px-3.5 py-2 flex items-center gap-2.5 shadow-sm">
+                  <span class="w-2.5 h-2.5 rounded-full bg-navy-900 shrink-0"></span>
+                  <span class="text-xs font-semibold text-navy-950">Cobertura testada • Ideal para o 1º treino</span>
+                </div>
+              </div>
+
+              <!-- Resumo Rápido dos 2 Kits abaixo da foto -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                <div class="p-3.5 rounded-card bg-white border border-navy-900/10 flex flex-col justify-between">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-graphite-600">Kit Masculino</span>
+                    <span class="text-sm font-extrabold text-navy-950">R$ 99,90</span>
+                  </div>
+                  <p class="text-xs text-graphite-600 mt-1">Camiseta Dry Fit + Short esportivo flexível</p>
+                </div>
+
+                <div class="p-3.5 rounded-card bg-navy-900 text-white flex flex-col justify-between shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-ice-200">Kit Feminino • Destaque</span>
+                    <span class="text-sm font-extrabold text-white">R$ 119,90</span>
+                  </div>
+                  <p class="text-xs text-ice-200 mt-1">Top + Legging alta cobertura (zero transparência)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO DE BENEFÍCIOS EM 3 COLUNAS -->
+    <section id="beneficios" class="section-space bg-white/75 border-t border-navy-900/5">
+      <div class="container-pp">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal-item">
+          <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Por que escolher a Ponto de Partida</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 mt-2">
+            Tudo o que você precisa para começar sem travar
+          </h2>
+          <p class="text-graphite-600 mt-3 text-base sm:text-lg">
+            Eliminamos preços abusivos e escolhas confusas para você vestir a roupa certa logo na primeira semana.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Benefício 1 -->
+          <div class="glass-card card-interactive p-7 reveal-item delay-1">
+            <div class="w-12 h-12 rounded-card bg-navy-900 text-white flex items-center justify-center mb-5 font-bold text-lg">
+              01
+            </div>
+            <h3 class="text-xl font-bold text-navy-950">Kits de Iniciação Vantajosos</h3>
+            <p class="text-graphite-600 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Conjuntos prontos de 2 peças (Masculino R$ 99,90 e Feminino R$ 119,90) com valor mais acessível do que comprar peças soltas em lojas tradicionais.
+            </p>
+          </div>
+
+          <!-- Benefício 2 -->
+          <div class="glass-card card-interactive p-7 reveal-item delay-2">
+            <div class="w-12 h-12 rounded-card bg-navy-800 text-white flex items-center justify-center mb-5 font-bold text-lg">
+              02
+            </div>
+            <h3 class="text-xl font-bold text-navy-950">Coleção por Modalidade</h3>
+            <p class="text-graphite-600 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Peças respiráveis, flexíveis e de boa cobertura selecionadas especificamente para musculação, lutas, corrida e bike.
+            </p>
+          </div>
+
+          <!-- Benefício 3 -->
+          <div class="glass-card card-interactive p-7 reveal-item delay-3">
+            <div class="w-12 h-12 rounded-card bg-navy-950 text-white flex items-center justify-center mb-5 font-bold text-lg">
+              03
+            </div>
+            <h3 class="text-xl font-bold text-navy-950">Guia de Escolha Simples</h3>
+            <p class="text-graphite-600 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Orientação direta por atividade, peso e altura para você acertar no tamanho e no tecido sem precisar ser especialista.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 1: GUIA SIMPLES DE ESCOLHA POR MODALIDADE (INTERATIVO) -->
+    <section id="guia-modalidade" class="section-space bg-white/60 border-y border-navy-900/5">
+      <div class="container-pp">
+        <div class="max-w-2xl mx-auto text-center mb-10 reveal-item">
+          <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Sem jargões técnicos</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 mt-2">
+            Guia Simples de Escolha por Modalidade
+          </h2>
+          <p class="text-graphite-600 mt-3 text-base sm:text-lg">
+            Fez a matrícula e não sabe o que vestir? Selecione sua atividade abaixo e veja exatamente qual kit funciona melhor para começar.
+          </p>
+        </div>
+
+        <!-- Botões de Abas / Filtro -->
+        <div role="tablist" aria-label="Escolha a modalidade esportiva" class="flex flex-wrap justify-center gap-3 mb-8 reveal-item delay-2">
+          <button type="button" role="tab" aria-selected="true" data-modality="musculacao" class="modality-tab btn-pill px-6 py-3 text-sm bg-navy-900 text-white shadow-md">
+            Musculação & Academia
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-modality="corrida" class="modality-tab btn-pill px-6 py-3 text-sm glass-card text-navy-900 hover:bg-white">
+            Corrida & Caminhada
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-modality="lutas" class="modality-tab btn-pill px-6 py-3 text-sm glass-card text-navy-900 hover:bg-white">
+            Lutas & Funcional
+          </button>
+          <button type="button" role="tab" aria-selected="false" data-modality="bike" class="modality-tab btn-pill px-6 py-3 text-sm glass-card text-navy-900 hover:bg-white">
+            Bike & Spinning
+          </button>
+        </div>
+
+        <!-- Painel Dinâmico do Guia -->
+        <div id="modality-panel" class="glass-card p-6 sm:p-10 reveal-item delay-2">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-block px-3.5 py-1 rounded-pill bg-navy-900/10 text-navy-900 text-xs font-bold uppercase tracking-wide" id="mod-tag">
+                Recomendação para Musculação
+              </div>
+              <h3 id="mod-title" class="text-xl sm:text-2xl font-bold text-navy-950">
+                Amplitude de movimento e zero transparência no agachamento
+              </h3>
+              <p id="mod-desc" class="text-graphite-600 leading-relaxed">
+                Na musculação, você precisa de peças que não subam, não enrolem na cintura e não fiquem transparentes nos exercícios de perna. Nossos kits entregam elasticidade na medida certa e secagem rápida do suor.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="p-4 rounded-card bg-ice-100 border border-navy-900/5">
+                  <p class="text-xs font-bold uppercase text-graphite-600">O que usar (Feminino)</p>
+                  <p id="mod-fem" class="text-sm font-semibold text-navy-950 mt-1">Kit Feminino (Top sustentação média + Legging cintura alta)</p>
+                </div>
+                <div class="p-4 rounded-card bg-ice-100 border border-navy-900/5">
+                  <p class="text-xs font-bold uppercase text-graphite-600">O que usar (Masculino)</p>
+                  <p id="mod-masc" class="text-sm font-semibold text-navy-950 mt-1">Kit Masculino (Camiseta Dry Fit leve + Short flexível acima do joelho)</p>
+                </div>
+              </div>
+
+              <div class="pt-3 flex flex-wrap items-center gap-4">
+                <button type="button" id="mod-cta" onclick="preselectReserve('Musculação')" class="btn-pill bg-navy-900 hover:bg-navy-950 text-white text-sm px-6 py-3.5 shadow">
+                  Reservar kit para Musculação
+                </button>
+                <span class="text-xs text-graphite-600">* Não vendemos tênis ou luvas — foco total no vestuário.</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="rounded-card overflow-hidden aspect-[4/3] bg-ice-200 border border-navy-900/10">
+                <img
+                  id="mod-img"
+                  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                  alt="Vestuário indicado para musculação"
+                  loading="lazy"
+                  class="w-full h-full object-cover rounded-card transition-opacity duration-300"
+                  onerror="this.onerror=null;this.src='https://placehold.co/800x600/162B4D/FFFFFF?text=Guia+Ponto+de+Partida';"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: PROVA SOCIAL ("SE VOCÊ TAMBÉM ESTÁ NO COMEÇO, VAI DE CONFORTO APROVADO PELA GALERA") -->
+    <section id="prova-social" class="section-space">
+      <div class="container-pp">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-item">
+          <div class="max-w-2xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Prova Social Real</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 mt-2">
+              “Se você também está no começo, vai de conforto aprovado pela galera”
+            </h2>
+          </div>
+          <div class="glass-card px-5 py-3.5 flex items-center gap-3 shrink-0">
+            <span class="text-2xl font-extrabold text-navy-950">4.9/5</span>
+            <div class="text-xs">
+              <div class="text-navy-950 font-bold text-sm leading-none">★★★★★</div>
+              <p class="text-graphite-600 mt-1">Aprovação em conforto e cobertura</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Depoimento 1 -->
+          <article class="glass-card card-interactive p-6 flex flex-col justify-between reveal-item delay-1">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-navy-950 font-bold text-sm" aria-label="5 estrelas">★★★★★</span>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-pill bg-navy-900/5 text-navy-900">Kit Feminino • Musculação</span>
+              </div>
+              <p class="text-graphite-700 text-sm sm:text-base leading-relaxed">
+                “Fechei a matrícula na academia e só tinha camiseta de algodão velha. Não queria gastar R$ 300 numa loja de shopping sem saber se ia continuar. Peguei o Kit Feminino por R$ 119,90 e a legging não fica nada transparente no agachamento!”
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-navy-900/10">
+              <div class="w-10 h-10 rounded-full bg-navy-900 text-white flex items-center justify-center font-bold text-sm">CM</div>
+              <div>
+                <p class="text-sm font-bold text-navy-950">Camila Mendes, 24 anos</p>
+                <p class="text-xs text-graphite-600">Recém-matriculada • Comprou tamanho M</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 2 -->
+          <article class="glass-card card-interactive p-6 flex flex-col justify-between reveal-item delay-2">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-navy-950 font-bold text-sm" aria-label="5 estrelas">★★★★★</span>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-pill bg-navy-900/5 text-navy-900">Kit Masculino • Corrida</span>
+              </div>
+              <p class="text-graphite-700 text-sm sm:text-base leading-relaxed">
+                “Sempre travava na hora de comprar roupa esportiva online por medo de errar o tamanho. O guia simples acertou em cheio no meu M. Paguei R$ 99,90 na camiseta dry fit e no short e já fui correr no parque sem passar calor.”
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-navy-900/10">
+              <div class="w-10 h-10 rounded-full bg-navy-800 text-white flex items-center justify-center font-bold text-sm">LS</div>
+              <div>
+                <p class="text-sm font-bold text-navy-950">Lucas Santana, 27 anos</p>
+                <p class="text-xs text-graphite-600">Iniciante na corrida • Comprou tamanho M</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 3 -->
+          <article class="glass-card card-interactive p-6 flex flex-col justify-between reveal-item delay-3">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-navy-950 font-bold text-sm" aria-label="5 estrelas">★★★★★</span>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-pill bg-navy-900/5 text-navy-900">Kit Feminino • Lutas</span>
+              </div>
+              <p class="text-graphite-700 text-sm sm:text-base leading-relaxed">
+                “Comecei no Muay Thai semana passada e estava com vergonha de ir com roupa inadequada. O kit chegou rapidinho, o top segura super bem nos movimentos e o preço cabe perfeitamente no bolso de quem tá começando.”
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-navy-900/10">
+              <div class="w-10 h-10 rounded-full bg-navy-950 text-white flex items-center justify-center font-bold text-sm">BR</div>
+              <div>
+                <p class="text-sm font-bold text-navy-950">Beatriz Rocha, 22 anos</p>
+                <p class="text-xs text-graphite-600">Primeira semana de treino • Tamanho P</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: COMO FUNCIONA (3 PASSOS HORIZONTAIS) -->
+    <section class="section-space bg-navy-950 text-white">
+      <div class="container-pp">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal-item">
+          <span class="text-xs font-bold uppercase tracking-widest text-ice-200">Sem complicação</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-2">
+            Do clique ao primeiro treino em 3 passos
+          </h2>
+          <p class="text-ice-200 mt-3 text-base sm:text-lg">
+            Criamos um processo direto para você resolver sua roupa de treino em menos de 3 minutos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Passo 1 -->
+          <div class="glass-dark card-interactive p-7 reveal-item delay-1">
+            <div class="w-11 h-11 rounded-pill bg-white text-navy-950 font-extrabold flex items-center justify-center text-lg mb-5">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-white">Escolha sua modalidade e kit</h3>
+            <p class="text-ice-200 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Opte pelo Kit Masculino (R$ 99,90), Kit Feminino (R$ 119,90) ou monte com peças avulsas conforme o esporte que você vai iniciar.
+            </p>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="glass-dark card-interactive p-7 reveal-item delay-2">
+            <div class="w-11 h-11 rounded-pill bg-white text-navy-950 font-extrabold flex items-center justify-center text-lg mb-5">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-white">Consulte nosso Guia Simples</h3>
+            <p class="text-ice-200 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Use nossa tabela visual por altura e peso para escolher entre P, M, G ou GG sem precisar de fita métrica ou medo de errar.
+            </p>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="glass-dark card-interactive p-7 reveal-item delay-3">
+            <div class="w-11 h-11 rounded-pill bg-white text-navy-950 font-extrabold flex items-center justify-center text-lg mb-5">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-white">Receba em casa e treine leve</h3>
+            <p class="text-ice-200 text-sm sm:text-base mt-2.5 leading-relaxed">
+              Operação 100% online com prazo transparente informado antes do pedido. Chegou, vestiu e partiu primeiro dia de treino sem aperto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: PLANOS E PREÇOS (KITS DE INICIAÇÃO + PEÇAS AVULSAS) -->
+    <section id="kits-precos" class="section-space">
+      <div class="container-pp">
+        <div class="max-w-2xl mx-auto text-center mb-12 reveal-item">
+          <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Preço justo para começar</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 mt-2">
+            Kits de Iniciação Vantajosos ou Peças Avulsas
+          </h2>
+          <p class="text-graphite-600 mt-3 text-base sm:text-lg">
+            Economize levando o conjunto completo de 2 peças prontas para treinar ou comece testando uma peça avulsa.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Plano 1: Kit Masculino Iniciação -->
+          <div class="glass-card card-interactive p-7 flex flex-col justify-between reveal-item delay-1">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-graphite-600">Conjunto 2 Peças</span>
+                <span class="text-xs font-semibold px-3 py-1 rounded-pill bg-ice-200 text-navy-900">Economia no Kit</span>
+              </div>
+              <h3 class="text-2xl font-extrabold text-navy-950 mt-3">Kit Masculino Iniciação</h3>
+              <p class="text-sm text-graphite-600 mt-1">Ideal para musculação, corrida, lutas e bike.</p>
+
+              <div class="my-6 pb-6 border-b border-navy-900/10">
+                <span class="text-4xl font-extrabold text-navy-950">R$ 99,90</span>
+                <span class="text-xs text-graphite-600 block mt-1">ou até 2x sem juros • Kit completo</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-graphite-700">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>1 Camiseta Dry Fit:</strong> leve, respirável e não retém suor.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>1 Short Esportivo:</strong> tecido flexível com ótima cobertura e liberdade de movimento.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>Guia Simples de Modalidade:</strong> orientação direta de uso e tamanho.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <button type="button" onclick="selectKitAndScroll('Kit Masculino Iniciação (R$ 99,90)')" class="btn-pill w-full bg-navy-900 hover:bg-navy-950 text-white py-4 text-sm shadow-md">
+                Escolher Kit Masculino
+              </button>
+            </div>
+          </div>
+
+          <!-- Plano 2: Kit Feminino Iniciação (DESTAQUE) -->
+          <div class="glass-dark card-interactive text-white p-7 sm:p-8 flex flex-col justify-between relative ring-2 ring-navy-800 reveal-item delay-2">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-navy-950 text-white border border-white/25 text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-pill shadow">
+              Mais escolhido por iniciantes
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-ice-200">Conjunto 2 Peças</span>
+                <span class="text-xs font-semibold px-3 py-1 rounded-pill bg-white/15 text-white">Zero Transparência</span>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white mt-3">Kit Feminino Iniciação</h3>
+              <p class="text-sm text-ice-200 mt-1">Conforto, sustentação e segurança total no 1º dia.</p>
+
+              <div class="my-6 pb-6 border-b border-white/15">
+                <span class="text-4xl font-extrabold text-white">R$ 119,90</span>
+                <span class="text-xs text-ice-200 block mt-1">ou até 2x sem juros • Kit completo</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-ice-100">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-white font-bold">✓</span>
+                  <span><strong>1 Top Esportivo:</strong> sustentação confortável que não aperta nem incomoda.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-white font-bold">✓</span>
+                  <span><strong>1 Legging Alta Cobertura:</strong> tecido encorpado, flexível e testado contra transparência.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-white font-bold">✓</span>
+                  <span><strong>Mais vantajoso:</strong> sai mais barato do que comprar top e legging avulsos.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <button type="button" onclick="selectKitAndScroll('Kit Feminino Iniciação (R$ 119,90)')" class="btn-pill w-full bg-white hover:bg-ice-200 text-navy-950 font-bold py-4 text-sm shadow-lg">
+                Escolher Kit Feminino
+              </button>
+            </div>
+          </div>
+
+          <!-- Plano 3: Peças Avulsas -->
+          <div class="glass-card card-interactive p-7 flex flex-col justify-between reveal-item delay-3">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-graphite-600">Compra Flexível</span>
+                <span class="text-xs font-semibold px-3 py-1 rounded-pill bg-ice-200 text-navy-900">Para Testar</span>
+              </div>
+              <h3 class="text-2xl font-extrabold text-navy-950 mt-3">Peças Avulsas</h3>
+              <p class="text-sm text-graphite-600 mt-1">Para complementar ou testar a marca aos poucos.</p>
+
+              <div class="my-6 pb-6 border-b border-navy-900/10">
+                <span class="text-xs uppercase font-bold text-graphite-600">A partir de</span>
+                <span class="text-4xl font-extrabold text-navy-950 block">R$ 49,90</span>
+                <span class="text-xs text-graphite-600 block mt-1">Valor por peça individual</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-graphite-700">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>Camiseta Dry Fit ou Short:</strong> opções soltas para combinar como preferir.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>Top ou Legging avulsa:</strong> mesma qualidade respirável e de boa cobertura dos kits.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-navy-900 font-bold">✓</span>
+                  <span><strong>Liberdade de escolha:</strong> ideal se você já tem uma peça em casa e só precisa da outra.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <button type="button" onclick="selectKitAndScroll('Peça Avulsa (A partir de R$ 49,90)')" class="btn-pill w-full border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white py-3.5 text-sm">
+                Reservar Peça Avulsa
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: GARANTIAS, TABELA VISUAL DE MEDIDAS & TRANSPARÊNCIA ONLINE -->
+    <section id="garantias" class="section-space bg-white/70 border-y border-navy-900/5">
+      <div class="container-pp">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Tabela Visual de Medidas Simplificada (7 cols) -->
+          <div class="lg:col-span-7 glass-card p-6 sm:p-8 reveal-item delay-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Sem medo de errar o tamanho online</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-2">
+              Guia Visual de Medidas (Peso × Altura)
+            </h2>
+            <p class="text-sm sm:text-base text-graphite-600 mt-2">
+              Não tem fita métrica por perto? Use nossa referência rápida validada para modelagem esportiva flexível:
+            </p>
+
+            <div class="overflow-x-auto mt-6">
+              <table class="w-full text-left border-collapse text-sm">
+                <thead>
+                  <tr class="border-b-2 border-navy-900/15 text-navy-950">
+                    <th class="py-3 px-3 font-bold">Tamanho</th>
+                    <th class="py-3 px-3 font-bold">Altura Indicada</th>
+                    <th class="py-3 px-3 font-bold">Peso Indicado</th>
+                    <th class="py-3 px-3 font-bold">Manequim</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-navy-900/10 text-graphite-700">
+                  <tr class="hover:bg-ice-100/70">
+                    <td class="py-3 px-3 font-extrabold text-navy-950">P</td>
+                    <td class="py-3 px-3">1,55m – 1,68m</td>
+                    <td class="py-3 px-3">50kg – 62kg</td>
+                    <td class="py-3 px-3">36 – 38</td>
+                  </tr>
+                  <tr class="hover:bg-ice-100/70">
+                    <td class="py-3 px-3 font-extrabold text-navy-950">M</td>
+                    <td class="py-3 px-3">1,62m – 1,76m</td>
+                    <td class="py-3 px-3">63kg – 74kg</td>
+                    <td class="py-3 px-3">40 – 42</td>
+                  </tr>
+                  <tr class="hover:bg-ice-100/70">
+                    <td class="py-3 px-3 font-extrabold text-navy-950">G</td>
+                    <td class="py-3 px-3">1,70m – 1,84m</td>
+                    <td class="py-3 px-3">75kg – 86kg</td>
+                    <td class="py-3 px-3">44</td>
+                  </tr>
+                  <tr class="hover:bg-ice-100/70">
+                    <td class="py-3 px-3 font-extrabold text-navy-950">GG</td>
+                    <td class="py-3 px-3">1,75m – 1,92m</td>
+                    <td class="py-3 px-3">87kg – 102kg</td>
+                    <td class="py-3 px-3">46 – 48</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-graphite-600 mt-4">
+              Dica: Nossos tecidos possuem elastano de alta flexibilidade. Se ficar entre dois tamanhos, escolha o maior para caimento mais solto ou o menor para mais compressão.
+            </p>
+          </div>
+
+          <!-- Cards de Garantias & Transparência Operacional (5 cols) -->
+          <div class="lg:col-span-5 space-y-5 reveal-item delay-2">
+            <!-- Garantia 1: Primeira Troca Fácil -->
+            <div class="glass-card card-interactive p-6 border-l-4 border-l-navy-900">
+              <h3 class="text-lg font-bold text-navy-950">Garantia de 1ª Troca Fácil</h3>
+              <p class="text-sm text-graphite-600 mt-2 leading-relaxed">
+                Comprou 100% online e o tamanho não vestiu como você esperava? Você tem até <strong>7 dias após o recebimento</strong> para solicitar a troca de tamanho sem burocracia.
+              </p>
+            </div>
+
+            <!-- Garantia 2: Transparência de Entrega 100% Online -->
+            <div class="glass-card card-interactive p-6 border-l-4 border-l-navy-800">
+              <h3 class="text-lg font-bold text-navy-950">Transparência de Operação 100% Online</h3>
+              <p class="text-sm text-graphite-600 mt-2 leading-relaxed">
+                Não temos loja física nem retirada no mesmo dia: cada kit é enviado diretamente do nosso centro de distribuição com <strong>prazo estimado de 3 a 7 dias úteis</strong> (informado antes da confirmação do pedido).
+              </p>
+            </div>
+
+            <!-- Garantia 3: Foco no Essencial -->
+            <div class="glass-card card-interactive p-6 border-l-4 border-l-graphite-700">
+              <h3 class="text-lg font-bold text-navy-950">O que não fazemos (para manter o preço baixo)</h3>
+              <p class="text-sm text-graphite-600 mt-2 leading-relaxed">
+                Não vendemos calçados, acessórios pesados nem oferecemos conteúdo de incentivo pós-compra. Todo o investimento vai para a qualidade do tecido das suas roupas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6: FORMULÁRIO DE RESERVA E VALIDAÇÃO DE PEDIDO -->
+    <section id="reserva-kit" class="section-space">
+      <div class="container-pp">
+        <div class="max-w-3xl mx-auto glass-card p-6 sm:p-10 reveal-item">
+          <div class="text-center mb-8">
+            <span class="inline-block px-3.5 py-1 rounded-pill bg-navy-900 text-white text-xs font-bold uppercase tracking-wider">
+              Reserva de Lote de Iniciação
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-3">
+              Reserve seu Kit de Iniciação agora
+            </h2>
+            <p class="text-sm sm:text-base text-graphite-600 mt-2">
+              Selecione seu kit, modalidade e tamanho para calcularmos o frete e garantirmos sua peça sem compromisso imediato de cartão.
+            </p>
+          </div>
+
+          <form id="reserve-form" class="space-y-5" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <!-- Escolha do Kit -->
+              <div>
+                <label for="f-kit" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">1. Escolha o Kit / Peça *</label>
+                <select id="f-kit" name="kit" required class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+                  <option value="Kit Feminino Iniciação (R$ 119,90)">Kit Feminino — R$ 119,90</option>
+                  <option value="Kit Masculino Iniciação (R$ 99,90)">Kit Masculino — R$ 99,90</option>
+                  <option value="Peça Avulsa (A partir de R$ 49,90)">Peça Avulsa — a partir de R$ 49,90</option>
+                </select>
+              </div>
+
+              <!-- Modalidade -->
+              <div>
+                <label for="f-modalidade" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">2. Modalidade *</label>
+                <select id="f-modalidade" name="modalidade" required class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+                  <option value="Musculação">Musculação / Academia</option>
+                  <option value="Corrida">Corrida / Caminhada</option>
+                  <option value="Lutas">Lutas / Funcional</option>
+                  <option value="Bike">Bike / Spinning</option>
+                </select>
+              </div>
+
+              <!-- Tamanho -->
+              <div>
+                <label for="f-tamanho" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">3. Tamanho *</label>
+                <select id="f-tamanho" name="tamanho" required class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+                  <option value="P">P (36–38)</option>
+                  <option value="M" selected>M (40–42)</option>
+                  <option value="G">G (44)</option>
+                  <option value="GG">GG (46–48)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <!-- Nome -->
+              <div>
+                <label for="f-nome" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">Seu Nome *</label>
+                <input type="text" id="f-nome" name="nome" required placeholder="Ex: Ana Paula" class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+              </div>
+
+              <!-- E-mail -->
+              <div>
+                <label for="f-email" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">Seu E-mail *</label>
+                <input type="email" id="f-email" name="email" required placeholder="voce@email.com" class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+              </div>
+
+              <!-- WhatsApp -->
+              <div>
+                <label for="f-whatsapp" class="block text-xs font-bold uppercase text-navy-950 mb-1.5">WhatsApp (com DDD) *</label>
+                <input type="tel" id="f-whatsapp" name="whatsapp" required placeholder="(11) 99999-9999" class="w-full rounded-card border border-navy-900/20 bg-white px-3.5 py-3 text-sm text-navy-950 focus:outline-none focus:ring-2 focus:ring-navy-900">
+              </div>
+            </div>
+
+            <!-- Aviso Transparente de Prazo 100% Online antes da confirmação -->
+            <div class="p-4 rounded-card bg-navy-900/5 border border-navy-900/15 flex items-start gap-3">
+              <span class="text-navy-950 font-bold text-base mt-0.5">ⓘ</span>
+              <div class="text-xs sm:text-sm text-graphite-700">
+                <strong class="text-navy-950">Aviso de entrega 100% online:</strong> Operamos exclusivamente via e-commerce (sem loja física para retirada hoje). O prazo estimado de entrega é de <strong>3 a 7 dias úteis</strong> após a confirmação do pedido, com 1ª troca de tamanho facilitada.
+              </div>
+            </div>
+
+            <!-- Checkbox LGPD -->
+            <div class="flex items-start gap-2.5">
+              <input type="checkbox" id="f-lgpd" required class="mt-1 w-4 h-4 rounded border-navy-900/30 text-navy-900 focus:ring-navy-900">
+              <label for="f-lgpd" class="text-xs text-graphite-600 leading-relaxed">
+                Concordo em receber o link de finalização do meu kit e informações da Ponto de Partida via WhatsApp ou e-mail, de acordo com a LGPD.
+              </label>
+            </div>
+
+            <!-- Mensagem de erro inline -->
+            <p id="form-error" class="hidden text-xs font-semibold text-navy-950 bg-ice-200 border border-navy-900/30 rounded-card px-4 py-2.5">
+              Por favor, preencha seu nome, e-mail válido, WhatsApp e aceite o termo LGPD para reservar seu kit.
+            </p>
+
+            <!-- Botão Submit Pílula -->
+            <div class="pt-2">
+              <button type="submit" class="btn-pill w-full bg-navy-900 hover:bg-navy-950 text-white font-bold text-base py-4 shadow-lg">
+                Quero reservar meu Kit de Iniciação
+              </button>
+            </div>
+          </form>
+
+          <!-- Confirmação de Reserva (Box Sucesso sem alert()) -->
+          <div id="reserve-success" class="hidden text-center py-6 space-y-4">
+            <div class="w-14 h-14 rounded-full bg-navy-900 text-white flex items-center justify-center text-2xl font-bold mx-auto">
+              ✓
+            </div>
+            <h3 class="text-2xl font-extrabold text-navy-950">Reserva registrada com sucesso!</h3>
+            <p id="success-summary" class="text-sm sm:text-base text-graphite-600 max-w-lg mx-auto"></p>
+            <div class="p-4 rounded-card bg-ice-100 border border-navy-900/10 text-xs text-graphite-700 max-w-md mx-auto">
+              Nossa equipe enviará em instantes o resumo do seu kit, o cálculo exato do frete (3 a 7 dias úteis) e o link de pagamento seguro.
+            </div>
+            <button type="button" onclick="resetReserveForm()" class="btn-pill px-6 py-3 text-xs bg-navy-900 text-white">
+              Fazer outra simulação de kit
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 7: FAQ EM ACORDEÃO (5 PERGUNTAS REAIS DA PERSONA) -->
+    <section id="faq" class="section-space bg-white/60 border-t border-navy-900/5">
+      <div class="container-pp">
+        <div class="max-w-2xl mx-auto text-center mb-10 reveal-item">
+          <span class="text-xs font-bold uppercase tracking-widest text-navy-800">Sem letras miúdas</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy-950 mt-2">
+            Perguntas Frequentes de Quem Está Começando
+          </h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-3 reveal-item delay-2">
+          
+          <!-- Pergunta 1 -->
+          <div class="glass-card overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy-950 text-base sm:text-lg focus:outline-none" aria-expanded="false">
+              <span>1. As leggings e shorts ficam transparentes durante o treino?</span>
+              <svg class="accordion-icon w-5 h-5 text-navy-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-6 pb-5 text-sm sm:text-base text-graphite-600 leading-relaxed">
+                Não. Esse é o nosso critério número um de seleção de tecido. Tanto a legging do Kit Feminino quanto o short do Kit Masculino possuem gramatura encorpada e alta elasticidade, garantindo cobertura total mesmo em agachamentos e movimentos amplos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="glass-card overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy-950 text-base sm:text-lg focus:outline-none" aria-expanded="false">
+              <span>2. Como sei meu tamanho comprando 100% online?</span>
+              <svg class="accordion-icon w-5 h-5 text-navy-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-6 pb-5 text-sm sm:text-base text-graphite-600 leading-relaxed">
+                Criamos o Guia Visual por Peso e Altura (P ao GG) pensado justamente para quem não tem fita métrica em casa. Além disso, a modelagem tem elastano flexível que se adapta ao corpo sem apertar. Se ainda assim precisar ajustar, sua 1ª troca de tamanho é facilitada.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="glass-card overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy-950 text-base sm:text-lg focus:outline-none" aria-expanded="false">
+              <span>3. Qual a diferença entre comprar o kit e peças avulsas?</span>
+              <svg class="accordion-icon w-5 h-5 text-navy-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-6 pb-5 text-sm sm:text-base text-graphite-600 leading-relaxed">
+                O Kit de Iniciação traz o conjunto completo de 2 peças (Camiseta + Short por R$ 99,90 ou Top + Legging por R$ 119,90) com desconto progressivo em relação às peças separadas. Já as Peças Avulsas (a partir de R$ 49,90) são ótimas se você quiser comprar apenas uma peça para testar ou complementar o que já tem.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="glass-card overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy-950 text-base sm:text-lg focus:outline-none" aria-expanded="false">
+              <span>4. Vocês vendem tênis, acessórios ou conteúdo de treino pós-compra?</span>
+              <svg class="accordion-icon w-5 h-5 text-navy-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-6 pb-5 text-sm sm:text-base text-graphite-600 leading-relaxed">
+                Não. Somos especialistas exclusivamente em vestuário esportivo básico de iniciação (camisetas, shorts, tops e leggings). Não vendemos calçados, acessórios pesados nem oferecemos conteúdo de incentivo pós-compra, garantindo foco total na qualidade das peças e no preço acessível.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pergunta 5 -->
+          <div class="glass-card overflow-hidden">
+            <button type="button" class="accordion-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-navy-950 text-base sm:text-lg focus:outline-none" aria-expanded="false">
+              <span>5. Qual o prazo de entrega e como funciona a troca?</span>
+              <svg class="accordion-icon w-5 h-5 text-navy-900 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner px-6 pb-5 text-sm sm:text-base text-graphite-600 leading-relaxed">
+                Nossa operação é 100% online com envio direto para o seu endereço em 3 a 7 dias úteis (conforme seu CEP). Caso precise trocar o tamanho, basta acionar nosso atendimento em até 7 dias corridos após a entrega com a peça sem uso e com etiqueta.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 md:py-24 bg-navy-900 text-white">
+      <div class="container-pp text-center max-w-3xl mx-auto space-y-6 reveal-item">
+        <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">
+          Pronto para dar o seu Ponto de Partida sem gastar uma fortuna?
+        </h2>
+        <p class="text-ice-200 text-base sm:text-lg">
+          Comece do jeito certo: roupas leves, zero transparência e preço justo para você focar apenas no seu primeiro treino.
+        </p>
+        <div class="pt-2">
+          <a href="#reserva-kit" class="btn-pill bg-white hover:bg-ice-200 text-navy-950 font-bold text-base px-9 py-4 shadow-xl">
+            Escolha seu primeiro kit
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ COMPLETO E LIMPO -->
+  <footer class="bg-navy-950 text-ice-200 pt-14 pb-10 border-t border-white/10">
+    <div class="container-pp">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        <!-- Coluna 1: Marca -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-card bg-white text-navy-950 flex items-center justify-center font-extrabold text-base">
+              PP
+            </div>
+            <span class="font-bold text-white text-lg">Ponto de Partida</span>
+          </div>
+          <p class="text-sm text-graphite-400 max-w-md leading-relaxed">
+            Roupas esportivas acessíveis para você começar a se movimentar. Operação 100% online B2C com kits de iniciação organizados por modalidade e guia simples de escolha.
+          </p>
+          <p class="text-xs text-graphite-400">
+            Transparência: Não vendemos calçados nem oferecemos conteúdo de incentivo pós-compra.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-4">Navegação</h4>
+          <ul class="space-y-2.5 text-sm text-graphite-400">
+            <li><a href="#beneficios" class="hover:text-white transition-colors">Diferenciais</a></li>
+            <li><a href="#guia-modalidade" class="hover:text-white transition-colors">Guia por Modalidade</a></li>
+            <li><a href="#prova-social" class="hover:text-white transition-colors">Aprovado pela Galera</a></li>
+            <li><a href="#kits-precos" class="hover:text-white transition-colors">Kits e Peças Avulsas</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Atendimento & Políticas -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-4">Atendimento Online</h4>
+          <ul class="space-y-2.5 text-sm text-graphite-400">
+            <li>Seg. a Sex. • 09h às 18h</li>
+            <li>contato@pontodepartida.com.br</li>
+            <li>Envio 100% Online (3 a 7 dias úteis)</li>
+            <li>1ª Troca Fácil em até 7 dias</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-graphite-400">
+        <p>© 2026 Ponto de Partida Moda Esportiva. Todos os direitos reservados.</p>
+        <p>Feito para quem está dando o primeiro passo.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS DE INTERATIVIDADE, MOTION E VALIDAÇÃO -->
+  <script>
+    // 1. Header Sticky Inteligente (esconde ao descer, aparece ao subir)
+    (function initSmartHeader() {
+      const header = document.getElementById('main-header');
+      let lastScrollY = window.scrollY;
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 120 && currentScrollY > lastScrollY) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScrollY = currentScrollY;
+      }, { passive: true });
+    })();
+
+    // 2. Scroll Reveal (Fade-in + Slide-up) com IntersectionObserver
+    (function initScrollReveal() {
+      const revealItems = document.querySelectorAll('.reveal-item');
+      if (!('IntersectionObserver' in window)) {
+        revealItems.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach(el => observer.observe(el));
+    })();
+
+    // 3. Guia Simples de Escolha por Modalidade (Abas Interativas)
+    const modalityData = {
+      musculacao: {
+        tag: 'Recomendação para Musculação',
+        title: 'Amplitude de movimento e zero transparência no agachamento',
+        desc: 'Na musculação, você precisa de peças que não subam, não enrolem na cintura e não fiquem transparentes nos exercícios de perna. Nossos kits entregam elasticidade na medida certa e secagem rápida do suor.',
+        fem: 'Kit Feminino (Top sustentação média + Legging cintura alta)',
+        masc: 'Kit Masculino (Camiseta Dry Fit leve + Short flexível acima do joelho)',
+        ctaText: 'Reservar kit para Musculação',
+        modalityValue: 'Musculação',
+        img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80'
+      },
+      corrida: {
+        tag: 'Recomendação para Corrida & Caminhada',
+        title: 'Leveza extrema e ventilação para não pesar no trajeto',
+        desc: 'Para correr ou caminhar na rua ou esteira, camisetas comuns de algodão encharcam e pesam. O tecido respirável dos kits dispersa o suor rápido e evita atrito na pele.',
+        fem: 'Kit Feminino (Top firme + Legging respirável de toque frio)',
+        masc: 'Kit Masculino (Camiseta Dry Fit ultraleve + Short com secagem rápida)',
+        ctaText: 'Reservar kit para Corrida',
+        modalityValue: 'Corrida',
+        img: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80'
+      },
+      lutas: {
+        tag: 'Recomendação para Lutas & Funcional',
+        title: 'Resistência, firmeza e mobilidade para chutes e giros',
+        desc: 'Aulas de Muay Thai, Boxe ou funcional exigem movimentos rápidos e explosivos. As costuras reforçadas e o ajuste firme mantêm tudo no lugar do aquecimento ao fim do treino.',
+        fem: 'Kit Feminino (Top alta estabilidade + Legging flexível reforçada)',
+        masc: 'Kit Masculino (Camiseta Dry Fit solta + Short leve com abertura lateral)',
+        ctaText: 'Reservar kit para Lutas',
+        modalityValue: 'Lutas',
+        img: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80'
+      },
+      bike: {
+        tag: 'Recomendação para Bike & Spinning',
+        title: 'Conforto térmico e ajuste seguro para pedalar sem incômodo',
+        desc: 'No spinning ou pedal ao ar livre, a ventilação constante faz toda a diferença. Nossas peças evitam superaquecimento e oferecem flexibilidade contínua nas pernas.',
+        fem: 'Kit Feminino (Top respirável + Legging cintura firme que não desliza)',
+        masc: 'Kit Masculino (Camiseta Dry Fit ventilada + Short leve flexível)',
+        ctaText: 'Reservar kit para Bike',
+        modalityValue: 'Bike',
+        img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80'
+      }
+    };
+
+    const tabs = document.querySelectorAll('.modality-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const key = tab.getAttribute('data-modality');
+        const info = modalityData[key];
+        if (!info) return;
+
+        // Atualiza visual das abas
+        tabs.forEach(t => {
+          t.setAttribute('aria-selected', 'false');
+          t.classList.remove('bg-navy-900', 'text-white', 'shadow-md');
+          t.classList.add('glass-card', 'text-navy-900');
+        });
+        tab.setAttribute('aria-selected', 'true');
+        tab.classList.remove('glass-card', 'text-navy-900');
+        tab.classList.add('bg-navy-900', 'text-white', 'shadow-md');
+
+        // Atualiza conteúdo do painel
+        document.getElementById('mod-tag').textContent = info.tag;
+        document.getElementById('mod-title').textContent = info.title;
+        document.getElementById('mod-desc').textContent = info.desc;
+        document.getElementById('mod-fem').textContent = info.fem;
+        document.getElementById('mod-masc').textContent = info.masc;
+
+        const modCta = document.getElementById('mod-cta');
+        modCta.textContent = info.ctaText;
+        modCta.setAttribute('onclick', `preselectReserve('${info.modalityValue}')`);
+
+        const modImg = document.getElementById('mod-img');
+        modImg.style.opacity = '0.4';
+        setTimeout(() => {
+          modImg.src = info.img;
+          modImg.style.opacity = '1';
+        }, 150);
+      });
+    });
+
+    // 4. Integração rápida dos botões de Kit/Modalidade com o Formulário de Reserva
+    function selectKitAndScroll(kitLabel) {
+      const kitSelect = document.getElementById('f-kit');
+      if (kitSelect) kitSelect.value = kitLabel;
+      document.getElementById('reserva-kit').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function preselectReserve(modalityName) {
+      const modSelect = document.getElementById('f-modalidade');
+      if (modSelect) modSelect.value = modalityName;
+      document.getElementById('reserva-kit').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 5. Acordeão Suave do FAQ
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        // Fecha outros itens abertos para manter organização
+        document.querySelectorAll('.accordion-btn').forEach(otherBtn => {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherBtn.nextElementSibling.classList.remove('open');
+        });
+
+        if (!isExpanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+
+    // 6. Validação e Submissão do Formulário de Reserva (Captura de Intenção Real)
+    const reserveForm = document.getElementById('reserve-form');
+    const formError = document.getElementById('form-error');
+    const reserveSuccess = document.getElementById('reserve-success');
+    const successSummary = document.getElementById('success-summary');
+
+    reserveForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formError.classList.add('hidden');
+
+      const kit = document.getElementById('f-kit').value;
+      const modalidade = document.getElementById('f-modalidade').value;
+      const tamanho = document.getElementById('f-tamanho').value;
+      const nome = document.getElementById('f-nome').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const whatsapp = document.getElementById('f-whatsapp').value.trim();
+      const lgpd = document.getElementById('f-lgpd').checked;
+
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!nome || !emailValid || whatsapp.length < 8 || !lgpd) {
+        formError.classList.remove('hidden');
+        return;
+      }
+
+      // Exibe confirmação estruturada
+      successSummary.innerHTML = `Olá, <strong>${nome}</strong>! Reservamos sua intenção para o <strong>${kit}</strong> (Modalidade: <strong>${modalidade}</strong> • Tamanho: <strong>${tamanho}</strong>).`;
+      reserveForm.classList.add('hidden');
+      reserveSuccess.classList.remove('hidden');
+    });
+
+    function resetReserveForm() {
+      reserveForm.reset();
+      reserveSuccess.classList.add('hidden');
+      reserveForm.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
